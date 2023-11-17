@@ -11,7 +11,6 @@ import com.ssafy.realty.user.application.port.in.dto.QueryResponseDto;
 import org.json.JSONObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@DisplayName("시큐리티 및 컨트롤러 통합 테스트")
+@DisplayName("시큐리티 및 유저 컨트롤러 통합 테스트")
 class UserControllerTest {
 
     @Autowired

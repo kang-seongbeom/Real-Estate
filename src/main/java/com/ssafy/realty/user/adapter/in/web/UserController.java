@@ -1,6 +1,6 @@
 package com.ssafy.realty.user.adapter.in.web;
 
-import com.ssafy.realty.realty.controller.swagger.ApiResponsesCommon;
+import com.ssafy.realty.common.swagger.ApiResponsesCommon;
 import com.ssafy.realty.security.config.auth.PrincipalDetails;
 import com.ssafy.realty.user.adapter.in.web.payload.RegistPayload;
 import com.ssafy.realty.user.adapter.in.web.payload.UpdatePayload;
@@ -9,9 +9,9 @@ import com.ssafy.realty.user.application.port.in.QueryUserUseCase;
 import com.ssafy.realty.user.application.port.in.dto.QueryResponseDto;
 import com.ssafy.realty.user.application.port.in.dto.RegistDto;
 import com.ssafy.realty.user.application.port.in.dto.UpdateDto;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +20,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")
+@Api(tags = {"User Controller V1"})
 @RequiredArgsConstructor
 public class UserController {
 
@@ -53,7 +54,6 @@ public class UserController {
     @ApiResponsesCommon
     ResponseEntity<QueryResponseDto> query(@AuthenticationPrincipal PrincipalDetails principalDetails){
         QueryResponseDto queryResponseDto = queryUserUseCase.query(principalDetails.getUsername());
-
         return ResponseEntity.ok(queryResponseDto);
     }
 
